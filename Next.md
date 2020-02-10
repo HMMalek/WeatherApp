@@ -7,7 +7,7 @@
 
 * Use a geocoder in order to get the city's name and country from the geographical coordinates when clicking on the map.<br/>
 
-* Modify the description part of the forecats in order to get more precise information(+CSS).<br/>
+* Modify the description part of the forecat (the expected changes) in order to get more precise information(+CSS).<br/>
 
 * Improve the design of the application. <br/>
 
