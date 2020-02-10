@@ -1,179 +1,216 @@
-
-
 @media (prefers-reduced-motion: no-preference) {
-  #pic1 {
-    animation: App-logo-spin infinite 15s linear;
-  }
+    #pic1 {
+        animation: App-logo-spin infinite 15s linear;
+    }
 }
 
 .App-header {
-  background-color: #ff8243;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(20px + 2vmin);
-  color: white;
-  border-bottom-style: ridge;
-}
-.line1{
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
-  grid-template-areas: 
-    "a a b b b b b c"
-    "a a b b b b b c";
-  align-items: start;
-}
-#pic1{
-  grid-area: a;
-  width: 60%;
-}
-#pic2{
- grid-area: c;
-}
-.SearchBar{
-  align-content: center;
-  margin-left: 10%;
-  margin-top: 5%;
-  grid-area: b; 
+    background-color: #ff8243;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(20px + 2vmin);
+    color: white;
+    border-bottom-style: ridge;
 }
 
-#title{
-  margin-left: 5%;
-  justify-content: center;
-  font-size: calc(8px + 2vmin);
-  color: #ff8243;
-}
-.title2{
-  margin-left: 25%;
-  font-size: calc(5px + 2vmin);
-  color: #ff8243;
-}
-
-#SearchCity, #SearchCountry{
-  border: none;
-  border-bottom: 2px solid red;
-  font-family: serif;
-  height: 30px;
-  width: 30%;
-}
-#SearchCountry{
-  margin-left: 20px;
+.line1 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas:
+        "a a b b b b b c"
+        "a a b b b b b c";
+    align-items: start;
 }
 
-.getWeatherbutton{
-  margin-left: 45px;
-  width:20%;
-  background-color: #ff8243;
-  padding: 7px 5%;
-  text-align: center;
-  font-size: 16px;
- -webkit-transition-duration: 0.4s; 
-  transition-duration: 0.4s;
-  border-radius: 12px;
-  color: white;
+#pic1 {
+    grid-area: a;
+    width: 60%;
+}
+
+#pic2 {
+    grid-area: c;
+}
+
+.SearchBar {
+    align-content: center;
+    margin-left: 10%;
+    margin-top: 5%;
+    grid-area: b;
+}
+
+#title {
+    margin-left: 5%;
+    justify-content: center;
+    font-size: calc(8px + 2vmin);
+    color: #ff8243;
+}
+
+.title2 {
+    margin-left: 25%;
+    font-size: calc(3px + 2vmin);
+    color: #ff8243;
+}
+
+#SearchCity,
+#SearchCountry {
+    border: none;
+    border-bottom: 2px solid red;
+    font-family: serif;
+    height: 30px;
+    width: 30%;
+}
+
+#SearchCountry {
+    margin-left: 20px;
+}
+
+.getWeatherbutton {
+    margin-left: 45px;
+    width: 20%;
+    background-color: #ff8243;
+    padding: 7px 5%;
+    text-align: center;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-radius: 12px;
+    color: white;
 }
 
 .Mapbox {
- margin-top: 1%;
- margin-left: 2.5%;
- height: 400px;
- width: 96%;
- position: relative;
- z-index:2000;
- background-color: white;
- border-style: ridge;
+    margin-top: 1%;
+    margin-left: 2.5%;
+    height: 400px;
+    width: 96%;
+    position: relative;
+    z-index: 2000;
+    background-color: white;
+    border-style: ridge;
 }
-.row1{
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
-  grid-template-areas: 
-    "a a a a b b b b"
-    "a a a a b b b b"
-    "a a a a b b b b"
-    "a a a a b b b b";
-  align-items: start;
- 
-}
-.description{
-  grid-area: a;
-}
-.nestedDescTable{
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
-  grid-template-areas: 
-     "a a b b b b c c"
-     "a a b b b b c c"
-     "a a b b b b c c"
-     "a a b b b b c c";
-  align-items: start;
+
+.row1 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas:
+        "a a a a b b b b"
+        "a a a a b b b b"
+        "a a a a b b b b"
+        "a a a a b b b b";
+    align-items: start;
 
 }
-.DescText{
-  margin-left: 45%;
-  grid-area: a;
+
+.description {
+    grid-area: a;
 }
-.DescTime{
-   margin-left: 25%;
-  grid-area: b;
+
+.nestedDescTable {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas:
+        "d d d e e e f f"
+        "a a a b b b c c"
+        "a a a b b b c c"
+        "a a a b b b c c";
+    align-items: start;
 }
-.DescImag{
-  grid-area: c;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
-  grid-template-areas: 
-     "a a a a a a a a"
-     "b b b b b b b b"
-     "c c c c c c c c";
-  align-items: start;
+
+.column1Titre {
+    margin-left: 45%;
+    grid-area: d;
+    font-weight: bold;
 }
-#pic3, #pic4, #pic5{
-  width: 60%;
+
+.column2Titre {
+    margin-left: 25%;
+    grid-area: e;
+    font-weight: bold;
+
 }
-#pic3{
-  grid-area: a;
+
+.DescText {
+    margin-top: -27%;
+    margin-left: 45%;
+    grid-area: a;
 }
-#pic4{
-  grid-area: b;
+
+.DescTime {
+    margin-top: -27%;
+    margin-left: 25%;
+    grid-area: b;
 }
-#pic5{
-  grid-area: c;
+
+.DescImag {
+    margin-top: -55%;
+    grid-area: c;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas:
+        "a a a a a a a a"
+        "b b b b b b b b"
+        "c c c c c c c c";
+    align-items: start;
 }
-.plot{
- grid-area: b;
+
+#pic3,
+#pic4,
+#pic5 {
+    width: 60%;
 }
-.row2{
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
-  grid-template-areas: 
-    "a a a a b b b b"
-    "a a a a b b b b"
-    "a a a a b b b b"
-   "a a a a b b b b";
-  align-items: start;
+
+#pic3 {
+    grid-area: a;
 }
-.plot2{
- grid-area: a;
+
+#pic4 {
+    grid-area: b;
 }
-.plot3{
-grid-area: b;
+
+#pic5 {
+    grid-area: c;
+}
+
+.plot {
+    grid-area: b;
+}
+
+.row2 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+    grid-template-areas:
+        "a a a a b b b b"
+        "a a a a b b b b"
+        "a a a a b b b b"
+        "a a a a b b b b";
+    align-items: start;
+}
+
+.plot2 {
+    grid-area: a;
+}
+
+.plot3 {
+    grid-area: b;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
 }
