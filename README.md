@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-This project is a weather application based on ReactJs in order to show different  forecast key information of 5 days within a given a location. 
+This project is a weather application based on ReactJs in order to show different  forecast key information of 5 days within a given a location. The defaut location is Paris, France.
 
 The user either clicks on a location on map or enter the city name in form in order to visualize the data.
 
