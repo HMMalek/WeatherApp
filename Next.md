@@ -10,3 +10,10 @@
 * Modify the description part of the forecats in order to get more precise information(+CSS).<br/>
 
 * Improve the design of the application. <br/>
+
+* The architecture of the application is as follows:
+
+    -main file : App.js <br/>
+    -css file : App.css <br/>
+    
+ It was chosen since it was the simplest and most suitable for this size and type of application. However a decomposition into different components as children of the main file is possile (creating other .js files for the map/plot1/plot2 .. components).
