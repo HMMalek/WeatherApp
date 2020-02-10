@@ -117,7 +117,7 @@ export default class App extends Component {
  getLocation(){
    var city = document.getElementById("SearchCity").value;
    var country=document.getElementById("SearchCountry").value;
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=${Key}`)
+    return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=${Key}`)
    .then(response => (response.json()))
    .then(json =>{ console.log(json) ;
      this.setState({
