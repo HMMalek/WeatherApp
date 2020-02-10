@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/WeatherApp/static/css/main.53d79ff3.chunk.css",
-    "main.js": "/WeatherApp/static/js/main.6252a12e.chunk.js",
-    "main.js.map": "/WeatherApp/static/js/main.6252a12e.chunk.js.map",
+    "main.css": "/WeatherApp/static/css/main.cb875be4.chunk.css",
+    "main.js": "/WeatherApp/static/js/main.fdcb18fd.chunk.js",
+    "main.js.map": "/WeatherApp/static/js/main.fdcb18fd.chunk.js.map",
     "runtime-main.js": "/WeatherApp/static/js/runtime-main.f5a434f0.js",
     "runtime-main.js.map": "/WeatherApp/static/js/runtime-main.f5a434f0.js.map",
     "static/css/2.7f75bbe2.chunk.css": "/WeatherApp/static/css/2.7f75bbe2.chunk.css",
     "static/js/2.7c8aee96.chunk.js": "/WeatherApp/static/js/2.7c8aee96.chunk.js",
     "static/js/2.7c8aee96.chunk.js.map": "/WeatherApp/static/js/2.7c8aee96.chunk.js.map",
     "index.html": "/WeatherApp/index.html",
-    "precache-manifest.1748acd1881675f72c631c552ffc5339.js": "/WeatherApp/precache-manifest.1748acd1881675f72c631c552ffc5339.js",
+    "precache-manifest.715a6ddf910049753222a24cd041e822.js": "/WeatherApp/precache-manifest.715a6ddf910049753222a24cd041e822.js",
     "service-worker.js": "/WeatherApp/service-worker.js",
     "static/css/2.7f75bbe2.chunk.css.map": "/WeatherApp/static/css/2.7f75bbe2.chunk.css.map",
-    "static/css/main.53d79ff3.chunk.css.map": "/WeatherApp/static/css/main.53d79ff3.chunk.css.map",
+    "static/css/main.cb875be4.chunk.css.map": "/WeatherApp/static/css/main.cb875be4.chunk.css.map",
     "static/js/2.7c8aee96.chunk.js.LICENSE.txt": "/WeatherApp/static/js/2.7c8aee96.chunk.js.LICENSE.txt",
     "static/media/clouds.ico": "/WeatherApp/static/media/clouds.addeb6e9.ico",
     "static/media/rain.ico": "/WeatherApp/static/media/rain.89ba78d1.ico",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.f5a434f0.js",
     "static/css/2.7f75bbe2.chunk.css",
     "static/js/2.7c8aee96.chunk.js",
-    "static/css/main.53d79ff3.chunk.css",
-    "static/js/main.6252a12e.chunk.js"
+    "static/css/main.cb875be4.chunk.css",
+    "static/js/main.fdcb18fd.chunk.js"
   ]
 }
