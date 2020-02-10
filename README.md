@@ -14,10 +14,6 @@ The following additional modules were downloaded:
 
  Please refer to package.json for more information
 
-## Available Scripts
-
-In the project directory, you can run:
-
 ## Launching application
 
 `npm start`
