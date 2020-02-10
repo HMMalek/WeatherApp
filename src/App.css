@@ -31,10 +31,6 @@
     width: 60%;
 }
 
-#pic2 {
-    grid-area: c;
-}
-
 .SearchBar {
     align-content: center;
     margin-left: 10%;
@@ -117,35 +113,39 @@
     grid-auto-rows: 100px;
     grid-template-areas:
         "d d d e e e f f"
-        "a a a b b b c c"
-        "a a a b b b c c"
-        "a a a b b b c c";
+        "a a b b b b c c"
+        "a a b b b b c c"
+        "a a b b b b c c";
     align-items: start;
+
 }
 
 .column1Titre {
-    margin-left: 45%;
+    margin-left: 30%;
     grid-area: d;
     font-weight: bold;
 }
 
 .column2Titre {
-    margin-left: 25%;
+    margin-left: 15%;
     grid-area: e;
     font-weight: bold;
 
 }
 
 .DescText {
-    margin-top: -27%;
-    margin-left: 45%;
+    margin-top: -55%;
+    margin-left: 50%;
     grid-area: a;
 }
 
 .DescTime {
-    margin-top: -27%;
-    margin-left: 25%;
+    margin-top: -26%;
+    margin-left: 29%;
+    width: 70%;
+    height:100%;
     grid-area: b;
+
 }
 
 .DescImag {
@@ -182,6 +182,7 @@
 
 .plot {
     grid-area: b;
+    margin-top: 8%;
 }
 
 .row2 {
@@ -195,6 +196,8 @@
         "a a a a b b b b"
         "a a a a b b b b";
     align-items: start;
+    margin-top: 1% ;
+    position: relative;
 }
 
 .plot2 {

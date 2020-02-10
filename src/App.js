@@ -6,6 +6,20 @@ import { Bar, Line } from 'react-chartjs-2';
 
 /** API key definition **/
 const Key = "6c1ce666f73cd6af767b3161e69090cd";
+/*Defining the marker icon*/
+    var LeafIcon = L.Icon.extend({
+    options: {
+       iconSize:     [35, 40],
+       shadowSize:   [50, 64],
+       iconAnchor:   [18, 37],
+       shadowAnchor: [20, 62],
+       popupAnchor:  [-4, -10]
+        }
+      });
+   var greenIcon = new LeafIcon({
+    iconUrl:require("leaflet/dist/images/marker-icon.png"),
+    shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+})
 
 export default class App extends Component {
 
@@ -17,6 +31,7 @@ export default class App extends Component {
         this.getLocation = this.getLocation.bind(this);
         /** Defining the state variables**/
         this.state = {
+            marker : L.marker([ 48.864, 2.349],{icon: greenIcon}),
             data: [],
             weatherDescription: [],
             weatherDescriptionTime: [],
@@ -118,8 +133,15 @@ export default class App extends Component {
         var coordLat = e.latlng.lat;
         var coordLng = e.latlng.lng;
         var newLatLng = new L.LatLng(coordLat, coordLng);
-        L.marker(newLatLng).addTo(this.map);
-        alert(`you are now viewing the weather for following coor ${newLatLng}`);
+        /*Removing old marker */
+        this.map.removeLayer(this.state.marker);
+        this.setState({
+          marker:  L.marker(newLatLng,{icon: greenIcon})
+        })
+        /*Add new marker and popup to the map*/
+       this.state.marker.addTo(this.map);
+       this.state.marker.bindPopup(`coordinates(${Number.parseFloat(coordLat).toFixed(2)},${Number.parseFloat(coordLng).toFixed(2)})`).openPopup();
+       /*Fetch weather data of location*/
         return fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${coordLat}&lon=${coordLng}&APPID=${Key}`)
             .then(response => (response.json()))
             .then(json => {
@@ -387,7 +409,7 @@ export default class App extends Component {
     componentDidMount() {
       /*Initialize map */
         this.map = L.map('mapid', {
-            center: [43.55, 5.12],
+            center: [45.55, 5.12],
             zoom: 5,
             zoomControl: true
         })
@@ -400,6 +422,9 @@ export default class App extends Component {
         }).addTo(this.map);
         /*bind onClick MAP listener*/
         this.map.on('click', this.onMapClick);
+        /*Adding default location marker*/
+        this.state.marker.addTo(this.map);
+
         /*Default fetch of forecast for Paris,Fr*/
         return fetch(`http://api.openweathermap.org/data/2.5/forecast?q=paris,fr&APPID=${Key}`)
             .then(response => (response.json()))
