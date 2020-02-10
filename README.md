@@ -13,7 +13,7 @@ The application is deployed and running here: https://hmmalek.github.io/WeatherA
 The following additional modules were downloaded: 
 
  * LeafletJs <br/>
- *React Chartjs <br />
+ * React Chartjs <br />
 
  Please refer to package.json for more information
 
