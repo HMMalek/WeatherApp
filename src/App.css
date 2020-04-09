@@ -1,150 +1,194 @@
+@font-face {
+  font-family: 'neon';
+  font-style: normal;
+  font-weight: normal;
+  src: url('font/ubuntu-regular-webfont.woff2') format('woff2'),
+    url('font/ubuntu-regular-webfont.woff') format('woff');
+}
+
 @media (prefers-reduced-motion: no-preference) {
-    #pic1 {
-        animation: App-logo-spin infinite 15s linear;
-    }
+  #pic1 {
+    animation: App-logo-spin infinite 15s linear;
+  }
 }
 
 .App-header {
-    background-color: #ff8243;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(20px + 2vmin);
-    color: white;
-    border-bottom-style: ridge;
-}
-
-.line1 {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: 100px;
-    grid-template-areas:
-        "a a b b b b b c"
-        "a a b b b b b c";
-    align-items: start;
-    width: 200%;
+  background-color: #ff8243;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  color: white;
+  border-bottom-style: ridge;
 }
 
 #pic1 {
-    grid-area: a;
-    width: 40%;
+  grid-area: a;
+  width: 40%;
 }
 
 .SearchBar {
-    align-content: center;
-    margin-left: 1%;
-    margin-top: 2%;
-    grid-area: b;
+  align-content: center;
+  margin-left: 1%;
+  margin-top: 2%;
+  grid-area: b;
 }
 
 #title {
-    margin-left: 5%;
-    justify-content: center;
-    font-size: calc(8px + 2vmin);
-    color: #ff8243;
+  justify-content: center;
+  font-size: calc(8px + 2vmin);
+  color: #ff8243;
+  font-family: "neon";
+  font-size: 30px;
 }
 
 .title2 {
-    font-size: calc(3px + 2vmin);
-    color: white;
-    background-color: #ff8243;
+  font-size: calc(3px + 2vmin);
+  color: white;
+  background-color: #ff8243;
+  font-family: "neon";
+  font-size: 18px;
+}
+
+#root {
+  height: 100%;
+  width: 950px;
+  margin: 1% auto 1% auto;
 }
 
 #SearchCity,
 #SearchCountry {
-    border: none;
-    border-bottom: 2px solid red;
-    font-family: serif;
-    height: 30px;
-    width: 30%;
-}
-
-#SearchCountry {
-    margin-left: 20px;
+  border: none;
+  border-bottom: 2px solid red;
+  font-family: serif;
+  height: 10%;
+  width: 30%;
+  align-items: center;
+  font-family: 'neon';
+  margin-bottom: 20%;
 }
 
 .getWeatherbutton {
-    margin-left: 45px;
-    width: 20%;
-    background-color: #ff8243;
-    padding: 7px 5%;
-    text-align: center;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    border-radius: 12px;
-    color: white;
+  margin-left: 45px;
+  width: 20%;
+  background-color: #ff8243;
+  padding: 7px 5%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  color: white;
+  font-family: 'neon';
 }
 
-.Mapbox {
-    display : inline-table;
-    margin-top: -1%;
-    height: 400px;
-    width: 200%;
-    position: relative;
-    background-color: white;
-
+tr div.Mapbox {
+  display: inline-table;
+  align-items: center;
+  margin-top: 15%;
+  height: 50%;
+  width: 95%;
+  position: relative;
+  background-color: white;
 }
 
-.description{
+
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {}
+
+.description {
   align-items: center;
 }
 
-.column1Titre { 
-    font-weight: bold;
+.column1Titre {
+  font-weight: bold;
 }
 
 .column2Titre {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.NestedTable{
-  width: 50%;
-  height: 70%;
+.NestedTable {
+  width: 100%;
+  height: 100%;
+  font-family: "neon";
 }
 
 .plot {
-    padding-top: 1%;
+  padding-top: 1%;
 }
-table{
+
+table {
   width: 100%;
   height: 750px;
-  margin-left: auto; 
-  margin-right: auto; 
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid black;
   border-color: #ff8243;
 }
-th{
-  margin-left: auto; 
-  margin-right: auto; 
-  border: 1px solid black;
-  border-color: #ff8243;
-  width: 50%;
-  align-items: center;
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
 }
-tr{
-  margin-left: auto; 
-  margin-right: auto; 
-  border: 1px solid black;
-  border-color: #ff8243;
-  width: 100%;
+
+tr.DescTime {
+  width: 50%
 }
+
+tr.column1Titre {
+  width: 50%
+}
+
+
+
+/***
+table lines
+***/
+
+tr.line1 {
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          grid-template-areas:
+            "a a b b b b b c"
+            "a a b b b b b c";
+          align-items: start;
+          width: 100%;
+          }
+
+tr.line2 {
+          height: 500px;
+          border: 1px solid black;
+          border-color: #ff8243;
+          display: flex;
+          }
+
+tr.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+    touch-action: none;
+    display: flex;
+    height: inherit;
+}
+
+/***
+plots
+***/
+.plot1 {
+  padding-top: 3%;
+  font-family: "neon";
+}
+
 .plot2 {
-    padding-top: 3%;
+  padding-top: 3%;
+  font-family: "neon";
 }
 
 .plot3 {
-    padding-top: 3%;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(180deg);
-    }
+  padding-top: 3%;
+  font-family: "neon";
 }

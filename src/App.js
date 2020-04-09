@@ -1,11 +1,17 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 import "./App.css";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Bar, Line } from "react-chartjs-2";
+import {
+  Bar,
+  Line
+} from "react-chartjs-2";
 
 /** API key definition **/
 const Key = "6c1ce666f73cd6af767b3161e69090cd";
+
 /*Defining the marker icon*/
 var LeafIcon = L.Icon.extend({
   options: {
@@ -47,16 +53,13 @@ export default class App extends Component {
           mode: "label"
         },
         scales: {
-          xAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString: "Date and Time"
-              }
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "Date and Time"
             }
-          ],
-          yAxes: [
-            {
+          }],
+          yAxes: [{
               scaleLabel: {
                 display: true,
                 labelString: "Temperature (K)"
@@ -98,16 +101,13 @@ export default class App extends Component {
           mode: "label"
         },
         scales: {
-          xAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString: "Date and Time"
-              }
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "Date and Time"
             }
-          ],
-          yAxes: [
-            {
+          }],
+          yAxes: [{
               scaleLabel: {
                 display: true,
                 labelString: "Pressure (hPa)"
@@ -149,16 +149,13 @@ export default class App extends Component {
           mode: "label"
         },
         scales: {
-          xAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString: "Date and Time"
-              }
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "Date and Time"
             }
-          ],
-          yAxes: [
-            {
+          }],
+          yAxes: [{
               scaleLabel: {
                 display: true,
                 labelString: "Speed (m/s)"
@@ -192,8 +189,7 @@ export default class App extends Component {
       },
       /** Initializing the data to be displayed **/
       dict1: {
-        datasets: [
-          {
+        datasets: [{
             label: "Temperature"
           },
           {
@@ -202,8 +198,7 @@ export default class App extends Component {
         ]
       },
       dict2: {
-        datasets: [
-          {
+        datasets: [{
             label: "Pressure bars"
           },
           {
@@ -212,8 +207,7 @@ export default class App extends Component {
         ]
       },
       dict3: {
-        datasets: [
-          {
+        datasets: [{
             label: "Wind Speed"
           },
           {
@@ -251,8 +245,8 @@ export default class App extends Component {
       .openPopup();
     /*Fetch weather data of location*/
     return fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${coordLat}&lon=${coordLng}&APPID=${Key}`
-    )
+        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${coordLat}&lon=${coordLng}&APPID=${Key}`
+      )
       .then(response => response.json())
       .then(json => {
         console.log(json);
@@ -276,8 +270,8 @@ export default class App extends Component {
     var city = document.getElementById("SearchCity").value;
     var country = document.getElementById("SearchCountry").value;
     return fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=${Key}`
-    )
+        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=${Key}`
+      )
       .then(response => response.json())
       .then(json => {
         console.log(json);
@@ -313,7 +307,7 @@ export default class App extends Component {
       temperature.push(this.state.data[i].main.temp);
       /*Collecting first few weather description changes*/
       var weath = this.state.data[i].weather[0].main;
-      if (weath != currentweather && num < 8) {
+      if (weath !== currentweather && num < 8) {
         weatherDes.push(weath);
         /*Collecting the corresponding description time and date*/
         weatherDesTime.push(this.state.data[i].dt_txt);
@@ -344,8 +338,7 @@ export default class App extends Component {
     /**Defining copies of data to be displayed**/
     var dict1Copy = {
       labels: time,
-      datasets: [
-        {
+      datasets: [{
           label: "Temperature",
           data: temperature,
           yAxisID: "y-axis-1",
@@ -390,8 +383,7 @@ export default class App extends Component {
 
     var dict2Copy = {
       labels: time,
-      datasets: [
-        {
+      datasets: [{
           label: "Pressure bars",
           backgroundColor: "#9ACD32",
           borderColor: "#9ACD32",
@@ -414,8 +406,7 @@ export default class App extends Component {
 
     var dict3Copy = {
       labels: time,
-      datasets: [
-        {
+      datasets: [{
           label: "Wind Speed",
           fill: false,
           data: windSpeed,
@@ -442,121 +433,114 @@ export default class App extends Component {
       dict3: dict3Copy
     });
   }
+
+
   /**Render function
    *Defining the application's content
    **/
   render() {
-    const { weatherDescription } = this.state;
-    const { weatherDescriptionTime } = this.state;
+    const {
+      weatherDescription
+    } = this.state;
+    const {
+      weatherDescriptionTime
+    } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">Weather App </header>{" "}
-        <table className="table">
-          <tr>
-            <div className="line1">
-              <img id="pic1" src={require("./sunny.ico")} />{" "}
-              <div className="SearchBar">
-                <h4 id="title"> Enter city & country or Click on map </h4>{" "}
-                <input type="search" id="SearchCity" placeholder="Paris" />
-                <input type="search" id="SearchCountry" placeholder="France" />
-                <button
-                  className="getWeatherbutton"
-                  onClick={this.getLocation}
-                  value="Charge"
-                >
-                  {" "}
-                  Charge{" "}
-                </button>
-                <br />
-              </div>{" "}
-            </div>{" "}
-          </tr>{" "}
-          <tr>
-            <div className="Mapbox" id="mapid">
-              {" "}
-            </div>{" "}
-          </tr>{" "}
-          <tr>
-            <th id="row11">
-              <div className="description">
-                <h4 className="title2">
-                  {" "}
-                  Expected changes for the next 5 days{" "}
+      < div className = "App" >
+      < header className = "App-header" > Weather App < /header> {" "}
+
+      < table className = "table" >
+
+        < tr className = "line1">
+            < div className = "SearchBar" >
+              < h4 id = "title" > Enter city & country or Click on map < /h4>{" "}
+              < input type = "search" id = "SearchCity" placeholder = "Paris" / >
+              < input type = "search" id = "SearchCountry" placeholder = "France" / >
+              < button className = "getWeatherbutton" onClick = {this.getLocation}
+                value = "Charge" > {" "} Charge {" "} </button>
+                <br/>
+            < /div>{" "}
+        </tr>{" "}
+
+        < tr className = "" id = "mapid" width="100%" align="center">
+        < /tr > {" "}
+
+        < tr className = "line3" colspan="100%">
+              < th id = "row11" >
+              < div className = "description" >
+                < h4 className = "title2" > {" "}
+                  Expected changes
+                  for the next 5 days {" "}
                 </h4>{" "}
-                <table className="NestedTable">
-                  <tr>
-                    <td>
-                      {" "}
-                      <div className="column1Titre">
-                        {" "}
-                        Main description{" "}
-                      </div>{" "}
-                    </td>
-                    <td>
-                      {" "}
-                      <div className="column2Titre"> Date and time </div>
-                    </td>
-                  </tr>{" "}
-                  <tr>
-                    <td>
-                      <div className="DescText">
-                        {" "}
-                        {Object.keys(weatherDescription).map((key, index) => (
-                          <p key={index}> {weatherDescription[key]} </p>
-                        ))}{" "}
-                      </div>{" "}
-                    </td>{" "}
-                    <td>
-                      <div className="DescTime">
-                        {" "}
-                        {Object.keys(weatherDescriptionTime).map(
-                          (key, index) => (
-                            <p key={index}> {weatherDescriptionTime[key]} </p>
-                          )
-                        )}{" "}
-                      </div>{" "}
-                    </td>{" "}
-                  </tr>{" "}
-                </table>{" "}
+
+                <table className = "NestedTable" >
+                < tr >
+                  < td > {" "}
+                    < div className = "column1Titre" > {" "}
+                      Main description {" "}
+                    < /div>{" "}
+                  < /td >
+
+                  < td > {" "}
+                    < div className = "column2Titre" > Date and time < /div>
+                  < /td >
+                < /tr>{" "}
+
+                < tr >
+                  < td >
+                    < div className = "DescText" > {" "}
+                    { Object.keys(weatherDescription).map((key, index) =>  (< p key = { index } > {weatherDescription[key]} < /p> ))}
+                    {" "}
+                    </div>{" "}
+                  < /td > {" "}
+
+                  < td >
+                    < div className = "DescTime" > {" "}
+                    { Object.keys(weatherDescriptionTime).map((key, index) => ( <p key = {index} > {weatherDescriptionTime[key]} < /p>))}
+                    {" "}
+                    </div>{" "}
+                  < /td > {" "}
+                < /tr>{" "}
+
+                < /table > {" "}
               </div>{" "}
-            </th>{" "}
-            <th id="row22">
-              <div className="plot">
-                <Line
-                  ref="chart"
-                  data={this.state.dict1}
-                  getDataSetAtEvent={dataset => console.log(dataset)}
-                  options={this.state.options1}
-                />{" "}
-              </div>{" "}
-            </th>{" "}
+              < /th > {" "}
+          < /tr > {" "}
+
+          < tr id = "line4" >
+            < div className = "plot1" >
+            < Line ref = "chart"
+            data = {this.state.dict1 }
+            getDataSetAtEvent = { dataset => console.log(dataset) }
+            options = { this.state.options1 } /> {" "}
+            < / div > {" "}
           </tr>{" "}
-          <tr>
-            <th>
-              <div className="plot2">
-                <Bar
-                  ref="chart2"
-                  data={this.state.dict2}
-                  getDataSetAtEvent={dataset => console.log(dataset)}
-                  options={this.state.options2}
-                />{" "}
-              </div>{" "}
-            </th>{" "}
-            <th>
-              <div className="plot3">
-                <Line
-                  ref="chart3"
-                  data={this.state.dict3}
-                  getDataSetAtEvent={dataset => console.log(dataset)}
-                  options={this.state.options3}
-                />{" "}
-              </div>{" "}
-            </th>{" "}
-          </tr>{" "}
-        </table>
-      </div>
+
+          < tr className = "line5">
+              < div className = "plot2" >
+              < Bar ref = "chart2" data = {this.state.dict2}
+              getDataSetAtEvent = { dataset => console.log(dataset)}
+              options = { this.state.options2 } /> {" "}
+              < /div > {" "}
+          < /tr > {" "}
+
+          < tr className = "line6">
+              < div className = "plot3" >
+                < Line ref = "chart3"
+                data = {this.state.dict3}
+                getDataSetAtEvent = { dataset => console.log(dataset)}
+                options = { this.state.options3 } /> {" "}
+              < /div > {" "}
+          < /tr > {" "}
+
+      < /table>
+      < /div >
     );
   }
+
+
+
+
   /**
    *  Setting up the map and default plots when component mounts
    **/
@@ -569,14 +553,11 @@ export default class App extends Component {
     });
     /*Add layer to view map*/
     L.tileLayer(
-      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: "mapbox.streets",
-        accessToken:
-          "pk.eyJ1IjoibWFsZWtoYSIsImEiOiJjazNlajUwNXcwOG54M2Ntemt5NGE1MnFqIn0.zmG039olyjNTguPwa1Q0zA"
+        accessToken: "pk.eyJ1IjoibWFsZWtoYSIsImEiOiJjazNlajUwNXcwOG54M2Ntemt5NGE1MnFqIn0.zmG039olyjNTguPwa1Q0zA"
       }
     ).addTo(this.map);
     /*bind onClick MAP listener*/
@@ -586,8 +567,8 @@ export default class App extends Component {
 
     /*Default fetch of forecast for Paris,Fr*/
     return fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=paris,fr&APPID=${Key}`
-    )
+        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=paris,fr&APPID=${Key}`
+      )
       .then(response => response.json())
       .then(json => {
         console.log(json);
